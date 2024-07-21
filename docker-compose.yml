@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  style-bert-vits2:
+    build: .
+    container_name: style-bert-vits2-app
+    volumes:
+      # - .:/app
+      - ./model_assets:/app/model_assets
+    ports:
+      - "8000:7860"
+      - "5000:5000"
+      - "6006:6006"
+    # tty: true
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    command: python server_fastapi.py --cpu
+    # command: tail -f /dev/null
