@@ -14,10 +14,3 @@ RUN pip install -r requirements.txt
 
 # initialize
 RUN python initialize.py --skip_default_models
-
-# nvidiaドライバーのインストール
-RUN pip3 install nvidia-cublas-cu12 nvidia-cudnn-cu12
-
-# CUDAの設定
-ENV CUDA_VISIBLE_DEVICES 0
-ENV MKL_SERVICE_FORCE_INTEL 1
