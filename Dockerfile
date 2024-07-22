@@ -13,4 +13,4 @@ RUN git clone https://github.com/litagin02/Style-Bert-VITS2.git -b 2.6.0 --depth
 RUN pip install -r requirements.txt
 
 # initialize
-RUN python initialize.py --skip_default_models
+RUN python initialize.py --skip_default_models --only_infer
