@@ -2,7 +2,9 @@ version: "3.8"
 
 services:
   style-bert-vits2:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.gpu
     container_name: style-bert-vits2-app
     volumes:
       - ./model_assets:/app/model_assets
@@ -10,6 +12,7 @@ services:
       - "8000:7860"
       - "5000:5000"
       - "6006:6006"
+    restart: unless-stopped
     deploy:
       resources:
         reservations:
